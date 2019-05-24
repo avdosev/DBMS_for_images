@@ -1,0 +1,26 @@
+{
+    "development": {
+        "username": "user-db",
+        "password": "password",
+        "database": "imageDB",
+        "host": "127.0.0.1",
+        "dialect": "mysql",
+        "logging": true
+    },
+    "test": {
+        "username": "user-db",
+        "password": "password",
+        "database": "imageDB",
+        "host": "127.0.0.1",
+        "dialect": "mysql",
+        "logging": true
+    },
+    "production": {
+        "username": "",
+        "password": "",
+        "database": "",
+        "host": "",
+        "dialect": "mysql",
+        "logging": false
+    }
+}
