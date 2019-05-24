@@ -1,0 +1,24 @@
+{
+  "name": "dbms-for-images",
+  "version": "0.0.1",
+  "description": "Small dbms",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avdosev/DBMS_for_images"
+  },
+  "author": "avdosev",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.0",
+    "mysql": "^2.17.1",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.7.4",
+    "sequelize-cli": "^5.4.0",
+    "sequelize-cli-model-class": "^5.5.3"
+  }
+}
