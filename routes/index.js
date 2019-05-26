@@ -7,7 +7,13 @@ function initRoutes(app) {
     app.use(bodyParser.json());
 
     app.get('/storage/:id', imgControllers.sendImage)
-    app.post('/storage')
+    app.post('/load-to-storage')
+
+    app.get('/', (req, res, next) => {
+        res.render('home')
+    })
+
+    app.s
 }
 
 

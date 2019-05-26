@@ -23,6 +23,10 @@ function uploadImage(req, res, next) {
 
 }
 
+function removeImage(req, res, next) {
+    
+}
+
 module.exports = {
     sendImage,
     uploadImage

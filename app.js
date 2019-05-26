@@ -9,6 +9,12 @@ const { port } = require('./config');
 
 initRoutes(app);
 
+//For Handlebars
+app.set('views', './views');
+app.set('view engine', 'pug');
+
+app.use(express.static('./public'));
+
 models.sequelize
     .sync()
     .then(() => {
