@@ -21,8 +21,9 @@ html(lang="ru")
                         .dropzone-pane
                             .dropzone-text
                                 | Перетащите файлы либо воспользуйтесь кнопкой
-                            .button
+                            .button#loadBtn
                                 span.button_text 
                                     | Загрузить изображения
                     .restriction 
                         | Доступные расширения: jpg, gif, png; максимальный размер до 8 Мбайт
+        <input id = "fileForm" type="file" multiple="multiple" class="dz-hidden-input" accept="image/*" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
