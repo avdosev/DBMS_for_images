@@ -48,6 +48,10 @@ body {
     margin: 0;
 }
 
+.drag {
+    background: rgba(249, 244, 245, 0.79);
+}
+
 .restriction {
     color: #858585;
     font-size: 13px;
