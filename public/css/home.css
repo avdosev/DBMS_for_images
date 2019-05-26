@@ -75,6 +75,8 @@ html {
     flex-direction: column;
     max-width: 960px;
     width: 100%;
+
+    margin-top: 20%;
 }
 
 .dropzone-inner {
