@@ -10,8 +10,19 @@ html(lang="ru")
         style
             include ../public/css/home.css
     body
+
         header
             a#logo(href="/")
+        noscript Слышъ, включи жабку
         .container
             .container-inner
-                input#image_file(type="file", name="image", accept="image/*")
+                .dropzone
+                    .dropzone-inner
+                        .dropzone-pane
+                            .dropzone-text
+                                | Перетащите файлы либо воспользуйтесь кнопкой
+                            .button
+                                span.button_text 
+                                    | Загрузить изображения
+                    .restriction 
+                        | Доступные расширения: jpg, gif, png; максимальный размер до 8 Мбайт

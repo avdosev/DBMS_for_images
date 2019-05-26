@@ -1,3 +1,17 @@
+:root {
+    --white: #fefefe;
+    --main-color: #f7f7f7;
+    --main-back-color: #333;
+    --ccc-color: #ccc;
+    --unique-color: rgb(99, 45, 80);
+    --main-bord-color: #d9d9d9;
+    --smoke-color: whitesmoke;
+    --comments-left-border-color: #d4d4d4;
+    --main-hover-color: blue;
+    --buttom-hover: rgba(99, 45, 80, 0.75);
+    --buttom-active:rgba(99, 45, 80, 0.5);
+}
+
 #logo {
     display: block;
 
@@ -5,11 +19,18 @@
     background-size: contain;
     
     height: 34px;
-    /* width: 146px; */
+    width: 146px;
+
+    margin-left: 19px;
 }
 
 header {
-    height: 70px
+    height: 70px;
+
+    background: var(--white);
+    border-bottom: 1px solid var(--main-back-color);
+    display: flex;
+    align-items: center;
 }
 
 .container {
@@ -20,4 +41,97 @@ header {
     margin: 0;
     min-height: 380px;
     padding: 0 0 54px;
+}
+
+body {
+    background: #f7f7f7;
+    margin: 0;
+}
+
+.restriction {
+    color: #858585;
+    font-size: 13px;
+    line-height: 22px;
+    margin: 16px 0 0;
+}
+
+html {
+    font-family: -apple-system,BlinkMacSystemFont,Arial,sans-serif;
+}
+
+.container-inner {
+    max-width: 1100px;
+    width: 100%;
+    padding: 40px 70px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.dropzone {
+    align-items: center;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    max-width: 960px;
+    width: 100%;
+}
+
+.dropzone-inner {
+    border: 2px solid #b697c0b3;;
+    background: #fefefe;
+
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%
+}
+
+.dropzone-pane {
+    height: 256px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+}
+
+.dropzone-text {
+    color: var(--unique-color);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    margin: 0 18px 36px;
+    max-width: 450px;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+}
+
+.button {
+    display: inline-block;
+    font-family: arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    user-select: none;
+
+    outline: none;
+    border-radius: 3px;
+    transition: all 0.218s ease 0s;
+
+    background-color: var(--main-back-color);
+    color: var(--smoke-color)
+}
+
+.button:hover {
+    background-color: var(--unique-color);
+    color: var(--smoke-color);
+}
+
+.button_text {
+    margin: 0.3em 1.2em;
+    display: block;
 }

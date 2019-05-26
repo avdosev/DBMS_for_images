@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
 const models = require('./database/models');
-
+const favicon = require('serve-favicon');
 
 const initRoutes = require('./routes');
 
-const { port } = require('./config');
+const { port, imgDir } = require('./config');
 
 initRoutes(app);
 
@@ -14,6 +14,8 @@ app.set('views', './views');
 app.set('view engine', 'pug');
 
 app.use(express.static('./public'));
+
+app.use(favicon('./public/img/icon.ico'));
 
 models.sequelize
     .sync()
