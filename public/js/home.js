@@ -40,16 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     fileForm.addEventListener('change', () => {
-        // респонсе файл
+        responseFile()
     })
 })
 
 
-function responseFile(file) {
+function responseFile() {
     const data = new FormData();
-    data.append('file', file)
+    data.append('file', fileForm)
     return fetch('/load-to-storage', {
         method: 'post',
-        body: file
+        body: data
     }).catch(console.error)
 }

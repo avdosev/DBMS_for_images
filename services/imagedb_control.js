@@ -11,11 +11,11 @@ const DBimg = require('../database/models/image_way')(models.sequelize, models.S
 const config = require('../config')
 
 /**
- * @param {*} img chtoto 
+ * @param {*} saveImgFnc колбек который доллжен сохранить полученный файл под названием которое получило
  */
-function pushImage(img) {
-    fs.WriteStream()
+function pushImage(saveImgFnc) {
     const newName = generateImgFileName('img', 'png')
+    saveImgFnc(config.storageDir + '/' + newName);
     DBimg.create({
         file_name: newName
     }).then(() => {
