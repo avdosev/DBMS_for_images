@@ -36,7 +36,8 @@ function uploadImage(req, res, next) {
         }).catch(err => {
             console.error(err);
             res.send({
-                id: null
+                id: null,
+                err
             })
         })
     }

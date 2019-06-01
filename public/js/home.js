@@ -68,9 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
             `
-
-            const container_inner = document.querySelector('.container-inner')
-            container_inner.insertAdjacentHTML('beforeend', block);
+            if (json.err) {
+                console.error(json.err)
+            } else {
+                const container_inner = document.querySelector('.container-inner')
+                container_inner.insertAdjacentHTML('beforeend', block);
+            }
         })
         fileForm.reset()
     })
