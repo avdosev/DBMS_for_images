@@ -11,16 +11,24 @@ const DBimg = require('../database/models/image_way')(models.sequelize, models.S
 const config = require('../config')
 
 /**
- * @param {*} saveImgFnc колбек который доллжен сохранить полученный файл под названием которое получило
+ * @param {*} loadTofs колбек который доллжен сохранить полученный файл под названием которое получило
  */
-function pushImage(saveImgFnc) {
-    const newName = generateImgFileName('img', 'png')
-    saveImgFnc(config.storageDir + '/' + newName);
-    DBimg.create({
-        file_name: newName
-    }).then(() => {
-        console.log('success insert');
-    }).catch(console.error)
+function pushImage(loadToFs, typeImage = 'png') {
+    return new Promise((resolve, reject) => {
+        const newName = generateImgFileName('img', typeImage)
+        const path = config.storageDir + '/' + newName;
+        loadToFs(path, err => {
+            if (err) reject(err);
+            else {
+                DBimg.create({
+                    file_name: newName
+                }).then((item) => {
+                    resolve(item)
+                    console.log('success insert');
+                }).catch(reject)
+            } 
+        });
+    }) 
 }
 
 async function removeImage(imgId) {

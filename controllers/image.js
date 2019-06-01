@@ -21,41 +21,25 @@ function sendImage(req, res, next) {
 
 function uploadImage(req, res, next) {
     console.log('file requested')
-    let file = req.body.file;
-    console.log(file)
-    imgDB.pushImage((filePath) => {
-        tmp.file(function _tempFileCreated(err, path, fd, cleanupCallback) {
-            if (err) console.error(err);
-            else {
-                let outStream = fs.createWriteStream(null, {fd});
-                let aborted = false;
-
-                outStream.on('finish', function () {
-                    response.statusCode = 201;
-                    response.end();
-                });
-
-                outStream.on('error', function(err) {
-                    console.error(err);
-                });
-
-                let counter = new StreamLength();
-
-                counter.on('progress', function() {
-                    if (((!isNaN(+contentLength) && counter.bytes > +contentLength) || (counter.bytes > +config.maxFileSize)) && !aborted) {
-                        aborted = true;
-                        res.statusCode = 413;
-                        res.end();
-                    }
-                });
-            
-                request.pipe(counter).pipe(outStream);
-            }
+    let files = req.files;
+    let image = files.image
+    if (image) {
+        const type = image.mimetype.substr(image.mimetype.match('/').index+1)
+        imgDB.pushImage(
+            image.mv, type
+        ).then(item => {
+            const id = item.id;
+            console.log(id);
+            res.send({
+                id
+            })
+        }).catch(err => {
+            console.error(err);
+            res.send({
+                id: null
+            })
         })
-    })// .then(filePath => {
-
-    // })
-    res.send('puk')
+    }
 }
 
 function removeImage(req, res, next) {

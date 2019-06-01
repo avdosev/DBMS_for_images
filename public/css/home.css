@@ -70,6 +70,8 @@ html {
 
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .dropzone {
@@ -140,4 +142,24 @@ html {
 .button_text {
     margin: 0.3em 1.2em;
     display: block;
+}
+
+.preview {
+    display: flex;
+    max-width: 960px;
+    margin-top: 30px;
+    border: 2px solid var(--unique-color);
+}
+
+.preview_image {
+    padding: 20px;
+    margin-right: 50px;
+}
+
+.preview_image img {
+    max-width: 250px;
+}
+
+.preview_fields {
+    margin-right: 10px;
 }

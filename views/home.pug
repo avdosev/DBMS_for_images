@@ -26,4 +26,6 @@ html(lang="ru")
                                     | Загрузить изображения
                     .restriction 
                         | Доступные расширения: jpg, gif, png; максимальный размер до 8 Мбайт
-        <input id = "fileForm" type="file" multiple="multiple" class="dz-hidden-input" accept="image/*" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
+        form(id = "fileForm" action="/load-to-storage" method="post" encType="multipart/form-data" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;")
+            <input id = "file" type="file" name="image" multiple="multiple" class="dz-hidden-input" accept="image/*" style="/*visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;*/">
+            input#submit(type="submit" value="Enter")

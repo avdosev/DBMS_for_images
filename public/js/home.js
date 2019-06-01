@@ -36,17 +36,50 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     loadBtn.addEventListener('click', () => {
-        fileForm.click()
+        file.click()
     })
 
-    fileForm.addEventListener('change', () => {
-        responseFile()
+    file.addEventListener('change', () => {
+        responseFile().then(response => {
+            if (response.ok) {
+                return response.json()
+            }
+        }).then(json => {
+            const id = json.id
+            const localurl = `/storage/${id}`
+            const url = `${document.location.host}/storage/${id}`;
+
+            const block = `
+            <div class = "preview">
+                <div class="preview_image">
+                    <img src="${localurl}"></img>
+                </div>
+                <div class="preview_fields">
+                    <div class="preview_links">
+                        <div class="preview-link tm-preview-link_direct">
+                            <p>url: ${url}</p>
+                        </div>
+                        <div class="tm-preview-link tm-preview-link_html">
+                            <p>HTML: &#60img src="${url}"&#62&#60/img&#62</p>
+                        <div class="tm-preview-link tm-preview-link_markdown">
+                            <p>Markdown: ![](${url})</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `
+
+            const container_inner = document.querySelector('.container-inner')
+            container_inner.insertAdjacentHTML('beforeend', block);
+        })
+        fileForm.reset()
     })
 })
 
-
+// аааааааааааааа
+// тупо минус три дня 
 function responseFile() {
-    const data = new FormData();
+    const data = new FormData(fileForm);
     data.append('file', fileForm)
     return fetch('/load-to-storage', {
         method: 'post',
